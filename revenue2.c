@@ -1,14 +1,3 @@
-/**************************************\
-	Name: Nicholas Kier
-	Date: 9/22/2020
-  Course: CSC345-01
-	Homework: CSC345_Lab01: "Revenue"
-  
-  Mission: The objective of this program is to take non-negative interger input from the user via the scanf() function and calculate the revenue from a sale based on the unit price and quantity of a product input by the user.
-
-\**************************************/
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,28 +5,49 @@ int main(){
 
   int Price; 
   int Quantity;
+  int temp;
+
+  int priceInput;
+  int QuantityInput;
 
   printf("Welcome to the \"RAMS\" store\n");
 
   printf("\n\tEnter item price: ");
-  scanf("%d", &Price);
-
-  if(Price <= 0)
+  priceInput = scanf("%d", &Price);
+  while(priceInput!=1 || priceInput <= 0)
   {
+    while((temp = getchar()) != EOF && temp != '\n');
     printf("\n\tThis is not a valid item price.\n\tPlease run the program again\n");
     printf("\nThank you for using \"RAMS\" store\n");
     exit(0);
+    //priceInput = scanf("%d", &Price);
   }
 
-  printf("\tEnter quantity: ");
+  printf("\n\tEnter quantity: ");
+  QuantityInput = scanf("%d", &Quantity);
+  while(QuantityInput!=1)
+  {
+    while((temp = getchar()) != EOF && temp != '\n');
+    printf("\n\tThis is not a valid quantity order.\n\tPlease run the program again\n");
+    printf("\nThank you for using \"RAMS\" store\n");
+    exit(0);
+    //QuantityInput = scanf("%d", &Quantity);
+  }
+  
+  
+  //printf("Your price is: %d\n", Quantity);
+
+
+  /*printf("\tEnter quantity: ");
   scanf("%d", &Quantity);
 
-  if(Quantity <= 0)
+  if (Quantity <= 0)
   {
     printf("\n\tThis is not a valid quantity order.\n\tPlease run the program again\n");
     printf("\nThank you for using \"RAMS\" store\n");
     exit(0);
   }
+  */
 
   unsigned int Cost = Price * Quantity;
   float discount;
